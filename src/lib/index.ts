@@ -11,6 +11,7 @@ export {
   default as Card,
   Heading as CardHeading,
   Footer as CardFooter,
+  Body as CardBody,
 } from "./components/card";
 export { default as Shimmer } from "./components/loader/shimmer";
 export { default as Spinner } from "./components/loader/spinner";
