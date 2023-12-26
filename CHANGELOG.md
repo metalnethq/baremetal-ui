@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/metalnethq/baremetal-ui/compare/v0.1.0...v0.1.1) (2023-12-26)
+
+
+### Bug Fixes
+
+* add missing card component body ([22ab479](https://github.com/metalnethq/baremetal-ui/commit/22ab4791fe022ce564f296070d4f1431c7eab81f))
+
 ## 0.1.0 (2023-12-26)
 
 
