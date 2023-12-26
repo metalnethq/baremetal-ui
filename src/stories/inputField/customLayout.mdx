@@ -1,0 +1,55 @@
+import { Meta, Primary, Source, Controls } from "@storybook/blocks";
+import * as componentStories from "./customLayout.stories";
+
+<Meta of={componentStories} />
+
+**If you need more control over the structure of the `InputField` component, you can do that by using compound component. Have a look at the example below.**
+
+First import the `InputField` component.
+
+<Source
+  language="tsx"
+  code={`import {InputField, Label, Error} from '@metalnet/baremetal/input';`}
+/>
+
+And change structure as the way you want.
+
+<Source
+  language="tsx"
+  code={`<InputField size={"lg"}>
+  <div className="flex items-center">
+    <Label
+      htmlFor={id}
+      className="mr-1 text-gray-600 pb-0"
+      bold
+      size={"sm"}
+    >
+      {label}
+    </Label>
+    <InputElement
+      id={id}
+      type={type}
+      onChange={onChange}
+      inputWrapperClasses=""
+      inputClasses=""
+    />
+  </div>
+  <Error size={"sm"} className="ml-10 mt-2">
+    {typeof error === "string" && error}
+
+    {Array.isArray(error) && (
+      <ul>
+        {error.map((err) => (
+          <li key={err}>{err}</li>
+        ))}
+      </ul>
+    )}
+
+  </Error>
+</InputField>`}
+
+/>
+
+<Primary />
+<Controls />
+```
