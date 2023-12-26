@@ -84,10 +84,10 @@
     }
   },
   "license": "MIT",
-  "homepage": "https://github.com/metalnethq/baremetal-ui",
+  "homepage": "https://metalnethq.github.io/baremetal-ui",
   "repository": {
     "type": "git",
-    "url": "https://github.com/metalnethq/baremetal-ui#readme"
+    "url": "https://github.com/metalnethq/baremetal-ui"
   },
   "author": {
     "name": "ByteMeBaby"

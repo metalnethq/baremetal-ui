@@ -5,12 +5,12 @@ A collection of simple React components built with TailwindCSS.
 ## Installation
 
 ```bash
-pnpm install @metalnethq/baremetal // PNPM
-npm install @metalnethq/baremetal // NPM
-yarn add @metalnethq/baremetal // Yarn
+pnpm i @metalnethq/baremetal-ui // PNPM
+npm i @metalnethq/baremetal-ui // NPM
+yarn add @metalnethq/baremetal-ui // Yarn
 ```
 
-## [Demo](https://metalnethq.github.io/baremetal)
+## [Demo](https://metalnethq.github.io/baremetal-ui)
 
 ### Peer Dependencies
 
@@ -34,7 +34,7 @@ module.exports = {
 };
 ```
 
-2. Create `theme.js/.ts` file and add the theme object to it. Right now there are only have few customization. You can find them [here.](https://github.com/metalnethq/baremetal/blob/main/src/lib/theme.ts) Then add following code to the `tailwind config` file:
+2. Create `theme.js/.ts` file and add the theme object to it. Right now there are only have few customization. You can find them [here.](https://github.com/metalnethq/baremetal-ui/blob/main/src/lib/theme.ts) Then add following code to the `tailwind config` file:
 
 ```js
 import theme from "./theme";
@@ -43,7 +43,7 @@ export default {
   // ...
   content: [
     // ...
-    "./node_modules/@metalnethq/baremetal/**/*.{js,jsx}",
+    "./node_modules/@metalnethq/baremetal-ui/**/*.{js,jsx}",
   ],
   theme: {
     // ...
