@@ -1,9 +1,9 @@
-import Text from "../../lib/components/text";
+import Text from "../../lib/components/text/thematicBreak";
 import "../../index.css";
 import { StoryObj, Meta } from "@storybook/react";
 
 const meta: Meta = {
-  title: "Text/Basic",
+  title: "Text/ThematicBreak",
   component: Text,
   parameters: {
     layout: "padded",
@@ -34,16 +34,35 @@ const meta: Meta = {
         ],
       },
     },
-    className: {
-      control: {
-        disable: true,
-      },
-    },
     fontSize: {
       control: {
         disable: true,
       },
       description: "This is determined by the element type",
+    },
+    lineClassName: {
+      control: {
+        disable: true,
+      },
+      description: "className for the line element",
+    },
+    wrapperClassName: {
+      control: {
+        disable: true,
+      },
+      description: "className for the wrapper element",
+    },
+    textClassName: {
+      control: {
+        disable: true,
+      },
+      description: "className for the text element",
+    },
+    lineWrapperClassName: {
+      control: {
+        disable: true,
+      },
+      description: "className for the line wrapper element",
     },
   },
 };
@@ -52,14 +71,7 @@ type Story = StoryObj<typeof Text>;
 
 export const Basic: Story = {
   args: {
-    children: "Text goes here",
-  },
-};
-
-export const ClassNames: Story = {
-  args: {
-    children: "Text goes here",
-    className: "text-blue-500",
+    children: "This is a text",
   },
 };
 
