@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/metalnethq/baremetal-ui/compare/v0.1.1...v0.2.0) (2023-12-27)
+
+
+### Features
+
+* add thematic break component ([8d40436](https://github.com/metalnethq/baremetal-ui/commit/8d404364d3308b7812a326710521a21ec0ca63f6))
+
 ## [0.1.1](https://github.com/metalnethq/baremetal-ui/compare/v0.1.0...v0.1.1) (2023-12-26)
 
 
