@@ -1,6 +1,6 @@
 export { default as Button } from "./components/button";
-export { default as Input } from "./components/inputField";
 export {
+  default as Input,
   InputField,
   Label as InputLabel,
   InputElement,
@@ -15,4 +15,4 @@ export {
 } from "./components/card";
 export { default as Shimmer } from "./components/loader/shimmer";
 export { default as Spinner } from "./components/loader/spinner";
-export { default as Text } from "./components/text";
+export { default as Text, ThematicBreak } from "./components/text";

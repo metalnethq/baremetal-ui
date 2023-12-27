@@ -31,6 +31,7 @@ export type ComponentProps = {
   fullWidth?: boolean;
   inputRef?: React.Ref<HTMLInputElement>;
   disabled?: boolean;
+  name?: string;
 };
 
 function Input({
@@ -61,6 +62,7 @@ function Input({
   fullWidth = true,
   disabled,
   inputRef,
+  name,
 }: ComponentProps) {
   return (
     <InputField
@@ -97,6 +99,7 @@ function Input({
         fullWidth={fullWidth}
         inputRef={inputRef}
         disabled={disabled}
+        name={name}
       />
       {error && (
         <Error

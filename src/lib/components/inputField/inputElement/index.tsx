@@ -46,6 +46,7 @@ function InputElement({
   prefixWrapperStyles,
   fullWidth,
   inputRef,
+  name,
   ...rest
 }: InputElementprops) {
   return (
@@ -88,6 +89,7 @@ function InputElement({
         onChange={onChange}
         style={inputStyles}
         ref={inputRef}
+        name={name}
         {...rest}
       />
       {postfix && (
