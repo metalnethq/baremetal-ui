@@ -3,12 +3,14 @@ import { cva } from "class-variance-authority";
 const text = cva("text-base", {
   variants: {
     intent: {
-      primary: "text-bm_gray-800",
+      primary: "text-bm_gray-700",
       secondary: "text-bm_gray-600",
       danger: "text-bm_danger-600",
       success: "text-bm_success-600",
       info: "text-bm_info-600",
       warning: "text-bm_warning-600",
+      light: "text-bm_gray-400",
+      dark: "text-bm_gray-800",
     },
     weight: {
       default: "font-normal",
