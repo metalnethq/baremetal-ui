@@ -19,7 +19,7 @@ const meta: Meta<typeof Component> = {
       control: { type: "radio" },
     },
     onChange: { action: "onChange", control: { disable: true } },
-    inputClasses: {
+    inputClassName: {
       control: { disable: true },
       description: "Classes to pass to the input",
     },
@@ -61,19 +61,19 @@ const meta: Meta<typeof Component> = {
       defaultValue: false,
       control: { type: "boolean" },
     },
-    labelStyles: {
+    labelStyle: {
       description: "Styles to pass to the label",
       control: { type: "object" },
     },
-    inputStyles: {
+    inputStyle: {
       description: "Styles to pass to the input",
       control: { type: "object" },
     },
-    errorStyles: {
+    errorStyle: {
       description: "Styles to pass to the error",
       control: { type: "object" },
     },
-    styles: {
+    style: {
       description: "Styles to pass to the wrapper",
       control: { type: "object" },
     },
@@ -85,7 +85,7 @@ const meta: Meta<typeof Component> = {
       description: "Classes to pass to the postfix wrapper",
       control: { type: "text" },
     },
-    postfixWrapperStyles: {
+    postfixWrapperStyle: {
       description: "Styles to pass to the postfix wrapper",
       control: { type: "object" },
     },
@@ -97,7 +97,7 @@ const meta: Meta<typeof Component> = {
       description: "Classes to pass to the prefix wrapper",
       control: { type: "text" },
     },
-    prefixWrapperStyles: {
+    prefixWrapperStyle: {
       description: "Styles to pass to the prefix wrapper",
       control: { type: "object" },
     },
@@ -128,7 +128,7 @@ export const InputError: Story = {
     label: "First Name",
     error: ["First name is required", "This is another error"],
     inputWrapperClassName: "",
-    inputClasses: "",
+    inputClassName: "",
   },
 };
 
@@ -141,7 +141,7 @@ export const ClassNames: Story = {
     intent: "primary",
     label: "First Name",
     wrapperClassName: "flex flex-row items-center",
-    inputClasses: "bg-yellow-50",
+    inputClassName: "bg-yellow-50",
     labelClassName: "font-bold pr-1",
     errorWrapperClassName: "pl-1 text-yellow-700",
     error: ["This is a warning"],
@@ -159,7 +159,7 @@ export const PrefixAndPostfix: Story = {
     intent: "primary",
     label: "First Name",
     wrapperClassName: "",
-    inputClasses: "pl-14 pr-10",
+    inputClassName: "pl-14 pr-10",
     prefix: "https://",
     prefixWrapperClassName: "text-gray-500 left-2",
     postfix: ".com",

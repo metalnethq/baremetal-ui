@@ -33,8 +33,7 @@ export function CustomLayout() {
             id={id}
             type={type}
             onChange={onChange}
-            inputWrapperClasses=""
-            inputClasses=""
+            inputClassName=""
           />
         </div>
         <Error size={"sm"} className="ml-10 mt-2">

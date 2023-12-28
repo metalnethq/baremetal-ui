@@ -14,16 +14,16 @@ export interface InputElementprops
   type?: string;
   placeholder?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  inputStyles?: React.CSSProperties;
-  inputWrapperStyles?: React.CSSProperties;
+  inputStyle?: React.CSSProperties;
+  inputWrapperStyle?: React.CSSProperties;
   prefix?: React.ReactNode;
   postfix?: React.ReactNode;
-  inputClasses?: string;
-  inputWrapperClasses?: string;
-  prefixWrapperClasses?: string;
-  postfixWrapperClasses?: string;
-  postfixWrapperStyles?: React.CSSProperties;
-  prefixWrapperStyles?: React.CSSProperties;
+  inputClassName?: string;
+  inputWrapperClassName?: string;
+  prefixWrapperClassName?: string;
+  postfixWrapperClassName?: string;
+  postfixWrapperStyle?: React.CSSProperties;
+  prefixWrapperStyle?: React.CSSProperties;
   inputRef?: React.Ref<HTMLInputElement>;
 }
 
@@ -34,16 +34,16 @@ function InputElement({
   placeholder,
   onChange,
   size,
-  inputStyles,
-  inputWrapperStyles,
+  inputStyle,
+  inputWrapperStyle,
   prefix,
   postfix,
-  inputClasses,
-  inputWrapperClasses,
-  prefixWrapperClasses,
-  postfixWrapperClasses,
-  postfixWrapperStyles,
-  prefixWrapperStyles,
+  inputClassName,
+  inputWrapperClassName,
+  prefixWrapperClassName,
+  postfixWrapperClassName,
+  postfixWrapperStyle,
+  prefixWrapperStyle,
   fullWidth,
   inputRef,
   name,
@@ -56,9 +56,9 @@ function InputElement({
         wrapperStyles({
           fullWidth,
         }),
-        inputWrapperClasses
+        inputWrapperClassName
       )}
-      style={inputWrapperStyles}
+      style={inputWrapperStyle}
     >
       {prefix && (
         <div
@@ -67,9 +67,9 @@ function InputElement({
             prefixPostfixStyles({
               size,
             }),
-            prefixWrapperClasses
+            prefixWrapperClassName
           )}
-          style={prefixWrapperStyles}
+          style={prefixWrapperStyle}
         >
           {prefix}
         </div>
@@ -81,13 +81,13 @@ function InputElement({
             size,
             fullWidth,
           }),
-          inputClasses
+          inputClassName
         )}
         type={type}
         id={id}
         placeholder={placeholder}
         onChange={onChange}
-        style={inputStyles}
+        style={inputStyle}
         ref={inputRef}
         name={name}
         {...rest}
@@ -99,9 +99,9 @@ function InputElement({
             prefixPostfixStyles({
               size,
             }),
-            postfixWrapperClasses
+            postfixWrapperClassName
           )}
-          style={postfixWrapperStyles}
+          style={postfixWrapperStyle}
         >
           {postfix}
         </div>

@@ -11,7 +11,7 @@ export function CustomLayout() {
         Please use the code from the{" "}
         <a
           className="underline"
-          href="https://metalnethq.github.io/baremetal/?path=/docs/card-custom-layout--docs"
+          href="https://metalnethq.github.io/baremetal-ui/?path=/docs/card-custom-layout--docs"
         >
           Docs
         </a>
