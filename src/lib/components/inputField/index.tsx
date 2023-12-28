@@ -15,19 +15,19 @@ export type ComponentProps = {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   size?: "xs" | "sm" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl";
   boldLabel?: boolean;
-  styles?: React.CSSProperties;
-  labelStyles?: React.CSSProperties;
-  inputStyles?: React.CSSProperties;
-  errorStyles?: React.CSSProperties;
-  inputClasses?: string;
+  style?: React.CSSProperties;
+  labelStyle?: React.CSSProperties;
+  inputStyle?: React.CSSProperties;
+  errorStyle?: React.CSSProperties;
+  inputClassName?: string;
   inputWrapperClassName?: string;
-  inputWrapperStyles?: React.CSSProperties;
+  inputWrapperStyle?: React.CSSProperties;
   postfix?: React.ReactNode;
   prefix?: React.ReactNode;
   prefixWrapperClassName?: string;
   postfixWrapperClassName?: string;
-  prefixWrapperStyles?: React.CSSProperties;
-  postfixWrapperStyles?: React.CSSProperties;
+  prefixWrapperStyle?: React.CSSProperties;
+  postfixWrapperStyle?: React.CSSProperties;
   fullWidth?: boolean;
   inputRef?: React.Ref<HTMLInputElement>;
   disabled?: boolean;
@@ -39,7 +39,7 @@ function Input({
   error,
   id = "input" + Date.now(),
   wrapperClassName,
-  inputClasses,
+  inputClassName,
   errorWrapperClassName,
   labelClassName,
   placeholder,
@@ -47,18 +47,18 @@ function Input({
   onChange,
   size,
   boldLabel,
-  labelStyles,
-  inputStyles,
+  labelStyle,
+  inputStyle,
   inputWrapperClassName,
-  inputWrapperStyles,
-  errorStyles,
-  styles,
+  inputWrapperStyle,
+  errorStyle,
+  style,
   postfix,
   prefix,
   prefixWrapperClassName,
   postfixWrapperClassName,
-  postfixWrapperStyles,
-  prefixWrapperStyles,
+  postfixWrapperStyle,
+  prefixWrapperStyle,
   fullWidth = true,
   disabled,
   inputRef,
@@ -67,7 +67,7 @@ function Input({
   return (
     <InputField
       className={`${wrapperClassName}`}
-      style={styles}
+      style={style}
       fullWidth={fullWidth}
     >
       <Label
@@ -76,26 +76,26 @@ function Input({
         htmlFor={id}
         intent={intent}
         bold={boldLabel}
-        style={labelStyles}
+        style={labelStyle}
       >
         {label}
       </Label>
       <InputElement
         id={id}
-        inputClasses={inputClasses}
-        inputWrapperClasses={inputWrapperClassName}
-        inputWrapperStyles={inputWrapperStyles}
-        inputStyles={inputStyles}
+        inputClassName={inputClassName}
+        inputWrapperClassName={inputWrapperClassName}
+        inputWrapperStyle={inputWrapperStyle}
+        inputStyle={inputStyle}
         intent={intent}
         placeholder={placeholder}
         onChange={onChange}
         size={size}
         postfix={postfix}
         prefix={prefix}
-        prefixWrapperClasses={prefixWrapperClassName}
-        postfixWrapperClasses={postfixWrapperClassName}
-        postfixWrapperStyles={postfixWrapperStyles}
-        prefixWrapperStyles={prefixWrapperStyles}
+        prefixWrapperClassName={prefixWrapperClassName}
+        postfixWrapperClassName={postfixWrapperClassName}
+        postfixWrapperStyle={postfixWrapperStyle}
+        prefixWrapperStyle={prefixWrapperStyle}
         fullWidth={fullWidth}
         inputRef={inputRef}
         disabled={disabled}
@@ -106,7 +106,7 @@ function Input({
           className={errorWrapperClassName}
           intent={intent}
           size={size}
-          style={errorStyles}
+          style={errorStyle}
         >
           {typeof error === "string" && error}
 

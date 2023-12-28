@@ -4,7 +4,7 @@ export default function Body({
   className,
   style,
 }: {
-  el:
+  el?:
     | "h1"
     | "h2"
     | "h3"

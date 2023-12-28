@@ -13,13 +13,13 @@ const meta: Meta<typeof Component> = {
     prefix: {
       control: "text",
     },
-    prefixWrapperClasses: {
+    prefixWrapperClassName: {
       control: "text",
     },
     postfix: {
       control: "text",
     },
-    postfixWrapperClasses: {
+    postfixWrapperClassName: {
       control: "text",
     },
     placeholder: {
@@ -34,16 +34,16 @@ const meta: Meta<typeof Component> = {
       options: ["primary", "error", "warning", "success", "info"],
       control: { type: "radio" },
     },
-    inputClasses: {
+    inputClassName: {
       control: { type: "text" },
     },
-    inputWrapperClasses: {
+    inputWrapperClassName: {
       control: { type: "text" },
     },
-    inputWrapperStyles: {
+    inputWrapperStyle: {
       control: { type: "object" },
     },
-    inputStyles: {
+    inputStyle: {
       control: { type: "object" },
     },
   },
@@ -53,8 +53,8 @@ export type Story = StoryObj<typeof meta>;
 
 export const Input: Story = {
   args: {
-    inputWrapperClasses: "",
-    inputClasses: "",
+    inputWrapperClassName: "",
+    inputClassName: "",
     size: "sm",
   },
 };
@@ -62,11 +62,11 @@ export const Input: Story = {
 export const Prefix: Story = {
   args: {
     prefix: "https://",
-    prefixWrapperClasses: "text-gray-500 left-2",
+    prefixWrapperClassName: "text-gray-500 left-2",
     postfix: ".com",
-    postfixWrapperClasses: "text-gray-500",
-    inputClasses: "pl-14 pr-10",
-    inputWrapperClasses: "",
+    postfixWrapperClassName: "text-gray-500",
+    inputClassName: "pl-14 pr-10",
+    inputWrapperClassName: "",
     size: "sm",
   },
 };
