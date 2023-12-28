@@ -29,7 +29,7 @@ module.exports = {
   // ...
   content: [
     // ...
-    "./node_modules/@metalnethq/baremetal/**/*.{js,jsx}",
+    "./node_modules/@metalnethq/baremetal-ui/**/*.{js,jsx}",
   ],
 };
 ```
