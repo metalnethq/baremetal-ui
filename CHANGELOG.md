@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/metalnethq/baremetal-ui/compare/v0.3.0...v0.3.1) (2023-12-31)
+
+
+### Bug Fixes
+
+* pass error as default intent ([78fc817](https://github.com/metalnethq/baremetal-ui/commit/78fc8177d159956be450e738d76cda54f1e9ad29))
+
 ## [0.3.0](https://github.com/metalnethq/baremetal-ui/compare/v0.2.0...v0.3.0) (2023-12-28)
 
 
