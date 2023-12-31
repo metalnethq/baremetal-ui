@@ -104,7 +104,7 @@ function Input({
       {error && (
         <Error
           className={errorWrapperClassName}
-          intent={intent}
+          intent='error'
           size={size}
           style={errorStyle}
         >

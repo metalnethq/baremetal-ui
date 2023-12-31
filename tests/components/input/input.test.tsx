@@ -1,18 +1,12 @@
-import { createRef } from "react";
-import Input from "../../../src/lib/components/inputField/inputElement";
-import { screen, render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import Input from "../../../src/lib/components/inputField";
 
-describe("InputField", () => {
-  it("should render correctly", () => {
-    const ref = createRef<HTMLInputElement>();
+describe("<Input />", () => {
+  it("should show correct color in errors", () => {
+    const error = "This is an error"
+    render(<Input label="Label" intent="error" error={[error]} />);
+    const errorEl = screen.getByText(error);
 
-    render(<Input id="id" inputRef={ref} />);
-
-    expect(screen.getByRole("textbox")).toBeInTheDocument();
-
-    ref.current?.focus();
-    expect(ref.current).toHaveFocus();
-    ref.current?.blur();
-    expect(ref.current).not.toHaveFocus();
+    expect(errorEl?.parentNode?.parentNode).toHaveClass("text-bm_danger-600");
   });
 });
