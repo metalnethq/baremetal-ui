@@ -8,7 +8,24 @@ const meta: Meta<typeof Alert> = {
   parameters: {
     layout: 'padded',
   },
+  tags: ['autodocs'],
   argTypes: {
+    intent: {
+      control: {
+        type: 'select',
+        options: [
+          'primary',
+          'secondary',
+          'danger',
+          'warning',
+          'success',
+          'info',
+          'light',
+          'dark',
+        ],
+      },
+      description: 'Visual intent',
+    },
   },
 }
 
@@ -16,8 +33,9 @@ const meta: Meta<typeof Alert> = {
 type Story = StoryObj<typeof Alert>;
 
 export const Default: Story = {
-
-
+  args: {
+    children: "This is an alert",
+  }
 }
 
 export default meta;
