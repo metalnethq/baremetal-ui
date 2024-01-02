@@ -26,6 +26,47 @@ const meta: Meta<typeof Alert> = {
       },
       description: 'Visual intent',
     },
+    rounded: {
+      control: {
+        type: 'select',
+        options: [
+          'xs',
+          'sm',
+          'md',
+          'lg',
+          'xl',
+          '2xl',
+          '3xl',
+          'full',
+        ],
+      },
+      description: 'Roundedness',
+    },
+
+    style: {
+      control: {
+        type: 'select',
+        options: [
+          'light',
+          'normal',
+          'bold',
+        ],
+      },
+      description: 'Style',
+    },
+    borderPlacement: {
+      control: {
+        type: 'select',
+        options: [
+          'top',
+          'bottom',
+          'left',
+          'right',
+        ],
+      },
+      description: 'Border Placement',
+    },
+
   },
 }
 
