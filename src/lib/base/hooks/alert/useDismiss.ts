@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function useDismiss(autoDismissTime: number | undefined) {
+function useDismiss(autoDismissTime?: number | undefined): [boolean, () => void] {
   const [isDismissed, setIsDismiss] = useState(false)
 
   if (autoDismissTime) {
