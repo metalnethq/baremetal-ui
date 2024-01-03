@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import Alert from '../../lib/components/alerts';
+import Alert from '../../lib/components/alert';
 import "../../index.css";
 
 const meta: Meta<typeof Alert> = {
@@ -53,18 +53,6 @@ const meta: Meta<typeof Alert> = {
         ],
       },
       description: 'Style',
-    },
-    borderPlacement: {
-      control: {
-        type: 'select',
-        options: [
-          'top',
-          'bottom',
-          'left',
-          'right',
-        ],
-      },
-      description: 'Border Placement',
     },
 
   },

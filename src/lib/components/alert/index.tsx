@@ -1,5 +1,6 @@
 import { twMerge } from 'tailwind-merge';
 import { cva, VariantProps } from 'class-variance-authority';
+import BaseAlert from '../../base/alert';
 
 const alert = cva('p-3', {
   variants: {
@@ -37,9 +38,8 @@ export interface AlertProps extends VariantProps<typeof alert> {
 }
 
 function Alert({ rounded, children, intent, style }: AlertProps) {
-  return <div
-    className={twMerge(alert({ intent, rounded, style }))}
-  > {children}</ div>
+  return <BaseAlert className={twMerge(alert({ intent, rounded, style }))}
+  > {children}</ BaseAlert>
 }
 
 export default Alert;
