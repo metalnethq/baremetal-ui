@@ -1,15 +1,15 @@
 import "./App.css";
 
 import React from "react";
-import { Label, InputField, Error } from "../../dist";
+import { InputLabel, InputField, InputError } from "../../dist";
 
 function App() {
   return (
     <>
       <InputField>
-        <Label htmlFor="id">First Name</Label>
+        <InputLabel htmlFor="id">First Name</InputLabel>
         <input id="id" />
-        <Error>error</Error>
+        <InputError>error</InputError>
       </InputField>
     </>
   );

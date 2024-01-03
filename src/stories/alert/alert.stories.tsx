@@ -67,4 +67,11 @@ export const Default: Story = {
   }
 }
 
+export const Primary: Story = {
+  args: {
+    children: "This is an alert",
+    intent: 'primary',
+    autoDissmissTime: 3000,
+  }
+}
 export default meta;
