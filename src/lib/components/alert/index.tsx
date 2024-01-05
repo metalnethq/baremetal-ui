@@ -1,4 +1,3 @@
-import useDismiss from '../../base/hooks/alert/useDismiss';
 import { twMerge } from 'tailwind-merge';
 import { cva, VariantProps } from 'class-variance-authority';
 import BaseAlert from '../../base/alert';
@@ -23,7 +22,7 @@ const alert = cva('p-3', {
       '2xl': 'rounded-2xl',
       full: 'rounded-full',
     },
-    style: {
+    alertWeight: {
       light: 'border-0 font-extralight',
       normal: 'border font-base',
       bold: 'font-bold border-2',
@@ -34,22 +33,13 @@ const alert = cva('p-3', {
   }
 });
 
-export interface AlertProps extends VariantProps<typeof alert> {
+export interface AlertProps {
   children?: React.ReactNode;
-  autoDissmissTime?: number;
+  visibilityTimeout?: number;
 }
 
-function Alert({ rounded, children, intent, style, autoDissmissTime }: AlertProps) {
-  const [isDismissed] = useDismiss(autoDissmissTime)
+function Alert({ children, visibilityTimeout }: AlertProps) {
+  return <BaseAlert visibilityTimeout={visibilityTimeout}>{children}</BaseAlert>
 
-
-  if (isDismissed) {
-    return null;
-  }
-
-  return <BaseAlert className={twMerge(alert({ intent, rounded, style }))}
-  > {children}</ BaseAlert>
 }
-
 export default Alert;
-export { useDismiss }
