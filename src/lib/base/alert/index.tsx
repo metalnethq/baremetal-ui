@@ -4,25 +4,25 @@ export type Props = {
   className?: string;
   children: React.ReactNode;
   visibilityTimeout?: number;
+  onTick?: (remainingTime: number) => void;
 }
 
-function BaseAlert({ className, children, visibilityTimeout }: Props) {
+function BaseAlert({ className, children, visibilityTimeout, onTick }: Props) {
   const {
     isVisible,
     ariaAttrs,
     alertRef,
-    remainingTime
+    remainingTime,
   } = useAlert({
-    visibilityTimeout
+    visibilityTimeout,
+    onTick
   })
 
   if (!isVisible) {
     return null;
   }
-
   return <div ref={alertRef} {...ariaAttrs} className={className}>
     {children}
-    <div>{remainingTime}</div>
   </div>
 
 }

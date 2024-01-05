@@ -40,6 +40,5 @@ export interface AlertProps {
 
 function Alert({ children, visibilityTimeout }: AlertProps) {
   return <BaseAlert visibilityTimeout={visibilityTimeout}>{children}</BaseAlert>
-
 }
 export default Alert;

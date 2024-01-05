@@ -1,9 +1,11 @@
-import { useState, useEffect, useRef } from 'react';
+
+import { useState, useEffect, useRef, useCallback } from 'react';
 
 export type Params = {
   visibilityTimeout?: number;
   onClose?: () => void;
   externalAccessibilityProps?: Record<string, string>;
+  onTick?: (remainingTime: number) => void;
 }
 
 export type Return = {
@@ -18,52 +20,49 @@ export type Return = {
   }
 }
 
-function useAlert({ visibilityTimeout, onClose, externalAccessibilityProps }: Params = {}): Return {
+function useAlert({ visibilityTimeout, onClose, externalAccessibilityProps, onTick }: Params = {}): Return {
   const [isVisible, setIsVisible] = useState(true);
-  const [remainingTime, setRemainingTime] = useState(visibilityTimeout || undefined);
+  const [remainingTime, setRemainingTime] = useState(visibilityTimeout);
 
   const alertRef = useRef<HTMLElement>(null);
 
-  const handleClose = () => {
-    setIsVisible(!isVisible);
+  const handleClose = useCallback(() => {
+    setIsVisible(false);
     onClose && onClose();
-  };
+  }, [onClose]);
 
   useEffect(() => {
-    if (visibilityTimeout) {
-      setInterval(() => {
+    if (visibilityTimeout && isVisible) {
+      const interval = setInterval(() => {
         setRemainingTime(prevTime => {
-          if (prevTime !== 0) {
-            onClose && onClose();
-            return Math.max(0, prevTime - 1000);
+          const newTime = Math.max(0, (prevTime ?? 0) - 1000);
+          onTick && onTick(newTime);
+          if (newTime === 0) {
+            clearInterval(interval); handleClose();
           }
-        })
+          return newTime;
+        });
       }, 1000);
-    }
 
-  }, [isVisible, visibilityTimeout,]);
+      return () => clearInterval(interval);
+    }
+  }, [isVisible, visibilityTimeout, onTick, handleClose]);
 
   const accessibilityProps = {
     role: 'alert',
     'aria-live': 'polite',
     'aria-describedby': alertRef.current?.id,
-    ...(externalAccessibilityProps && { externalAccessibilityProps }),
+    ...externalAccessibilityProps,
   }
 
-
-  useEffect(() => {
-    if (visibilityTimeout) {
-      const timer = setTimeout(() => {
-        setIsVisible(false);
-        onClose && onClose();
-      }, visibilityTimeout)
-
-      return () => clearTimeout(timer);
-    }
-  }, [visibilityTimeout, onClose]);
-
-  return { isVisible, remainingTime, alertRef, handleClose, ariaAttrs: accessibilityProps }
+  return {
+    isVisible,
+    remainingTime,
+    alertRef,
+    handleClose,
+    ariaAttrs: accessibilityProps,
+  }
 }
 
-
 export default useAlert;
+
