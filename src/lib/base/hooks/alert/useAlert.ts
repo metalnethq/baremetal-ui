@@ -1,12 +1,11 @@
-
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback } from "react";
 
 export type Params = {
   visibilityTimeout?: number;
   onClose?: () => void;
-  externalAccessibilityProps?: Record<string, string>;
+  accessibilityProps?: Record<string, string>;
   onTick?: (remainingTime: number) => void;
-}
+};
 
 export type Return = {
   isVisible: boolean;
@@ -15,30 +14,35 @@ export type Return = {
   handleClose: () => void;
   ariaAttrs?: {
     role: string;
-    'aria-live': string;
-    'aria-describedby'?: string;
-  }
-}
+    "aria-live"?: "polite" | "assertive" | "off";
+  };
+};
 
-function useAlert({ visibilityTimeout, onClose, externalAccessibilityProps, onTick }: Params = {}): Return {
+function useAlert<T extends HTMLElement>({
+  visibilityTimeout,
+  onClose,
+  accessibilityProps: externalAccessibilityProps,
+  onTick,
+}: Params = {}): Return {
   const [isVisible, setIsVisible] = useState(true);
   const [remainingTime, setRemainingTime] = useState(visibilityTimeout);
 
-  const alertRef = useRef<HTMLElement>(null);
+  const alertRef = useRef<T>(null);
 
   const handleClose = useCallback(() => {
     setIsVisible(false);
-    onClose && onClose();
+    onClose?.();
   }, [onClose]);
 
   useEffect(() => {
     if (visibilityTimeout && isVisible) {
       const interval = setInterval(() => {
-        setRemainingTime(prevTime => {
+        setRemainingTime((prevTime) => {
           const newTime = Math.max(0, (prevTime ?? 0) - 1000);
-          onTick && onTick(newTime);
+          onTick?.(newTime);
           if (newTime === 0) {
-            clearInterval(interval); handleClose();
+            clearInterval(interval);
+            handleClose();
           }
           return newTime;
         });
@@ -49,11 +53,10 @@ function useAlert({ visibilityTimeout, onClose, externalAccessibilityProps, onTi
   }, [isVisible, visibilityTimeout, onTick, handleClose]);
 
   const accessibilityProps = {
-    role: 'alert',
-    'aria-live': 'polite',
-    'aria-describedby': alertRef.current?.id,
+    role: "alert",
+    "aria-live": "polite" as const,
     ...externalAccessibilityProps,
-  }
+  };
 
   return {
     isVisible,
@@ -61,8 +64,7 @@ function useAlert({ visibilityTimeout, onClose, externalAccessibilityProps, onTi
     alertRef,
     handleClose,
     ariaAttrs: accessibilityProps,
-  }
+  };
 }
 
 export default useAlert;
-
