@@ -1,6 +1,7 @@
 import { twMerge } from "tailwind-merge";
 import { cva } from "class-variance-authority";
 import BaseAlert from "../../base/alert";
+import { ReactNode } from "react";
 
 const alert = cva("p-3", {
   variants: {
@@ -35,7 +36,7 @@ const alert = cva("p-3", {
 });
 
 export interface AlertProps {
-  children?: React.ReactNode;
+  children?: ReactNode;
   visibilityTimeout?: number;
   onTick?: (remainingTime: number) => void;
 }

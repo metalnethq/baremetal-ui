@@ -13,7 +13,7 @@ export type Return = {
   alertRef: React.RefObject<HTMLElement>;
   handleClose: () => void;
   ariaAttrs?: {
-    role: string;
+    role: "alert";
     "aria-live"?: "polite" | "assertive" | "off";
   };
 };
@@ -53,7 +53,7 @@ function useAlert<T extends HTMLElement>({
   }, [isVisible, visibilityTimeout, onTick, handleClose]);
 
   const accessibilityProps = {
-    role: "alert",
+    role: "alert" as const,
     "aria-live": "polite" as const,
     ...externalAccessibilityProps,
   };

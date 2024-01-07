@@ -1,12 +1,12 @@
-import { createElement } from "react";
+import { ReactNode } from "react";
 import useAlert from "../hooks/alert/useAlert";
 
 export type Props = {
   className?: string;
-  children: React.ReactNode;
+  children?: ReactNode;
   visibilityTimeout?: number;
   onTick?: (remainingTime: number) => void;
-  el?: keyof JSX.IntrinsicElements;
+  el?: React.ElementType;
 };
 
 function BaseAlert({
@@ -16,7 +16,7 @@ function BaseAlert({
   onTick,
   el: El = "div",
 }: Props) {
-  const { isVisible, ariaAttrs, alertRef } = useAlert<HTMLDivElement>({
+  const { isVisible, ariaAttrs, alertRef } = useAlert<HTMLElement>({
     visibilityTimeout,
     onTick,
   });
@@ -25,12 +25,11 @@ function BaseAlert({
     return null;
   }
 
-  return createElement(El, {
-    ref: alertRef,
-    ...ariaAttrs,
-    className: className,
-    children: children,
-  });
+  return (
+    <El ref={alertRef} {...ariaAttrs} className={className}>
+      {children}
+    </El>
+  );
 }
 
 export default BaseAlert;
