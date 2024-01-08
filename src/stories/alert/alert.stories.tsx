@@ -17,6 +17,36 @@ const meta: Meta<typeof Alert> = {
       description:
         "The number of milliseconds to wait before hiding the alert. If this prop is not provided, the alert will not hide automatically.",
     },
+    intent: {
+      control: {
+        type: "select",
+        options: [
+          "primary",
+          "secondary",
+          "danger",
+          "warning",
+          "success",
+          "info",
+          "light",
+          "dark",
+        ],
+      },
+      description: "The intent of the alert.",
+    },
+    alertWeight: {
+      control: {
+        type: "select",
+        options: ["light", "normal", "bold"],
+      },
+      description: "The weight of the alert.",
+    },
+    rounded: {
+      control: {
+        type: "select",
+        options: ["sm", "md", "lg", "xl", "2xl", "full"],
+      },
+      description: "The border radius of the alert.",
+    },
   },
 };
 
