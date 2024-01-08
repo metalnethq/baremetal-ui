@@ -1,5 +1,5 @@
 import { twMerge } from "tailwind-merge";
-import { cva } from "class-variance-authority";
+import { cva, VariantProps } from "class-variance-authority";
 import BaseAlert from "../../base/alert";
 import { ReactNode } from "react";
 
@@ -32,24 +32,27 @@ const alert = cva("p-3", {
   },
   defaultVariants: {
     intent: "primary",
+    rounded: "md",
+    alertWeight: "normal",
   },
 });
 
-export interface AlertProps {
+export interface AlertProps extends VariantProps<typeof alert> {
   children?: ReactNode;
   visibilityTimeout?: number;
   onTick?: (remainingTime: number) => void;
 }
 
-function Alert({ children, visibilityTimeout, onTick }: AlertProps) {
+function Alert({ children, visibilityTimeout, onTick, intent, alertWeight, rounded }: AlertProps) {
   return (
     <BaseAlert
       visibilityTimeout={visibilityTimeout}
       onTick={onTick}
-      className={twMerge(alert({ rounded: "md", alertWeight: "bold" }))}
+      className={twMerge(alert({ rounded, alertWeight, intent }))}
     >
       {children}
     </BaseAlert>
   );
 }
+
 export default Alert;
