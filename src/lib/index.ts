@@ -16,4 +16,6 @@ export {
 export { default as Shimmer } from "./components/loader/shimmer";
 export { default as Spinner } from "./components/loader/spinner";
 export { default as Text, ThematicBreak } from "./components/text";
-export { default as Alert, useDismiss } from "./components/alert";
+export { default as Alert } from "./components/alert";
+export { default as BaseAlert } from "./base/alert";
+export { default as useAlert } from "./base/hooks/alert/useAlert";
