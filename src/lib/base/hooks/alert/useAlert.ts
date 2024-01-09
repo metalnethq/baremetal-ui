@@ -16,6 +16,7 @@ export type Return = {
     role: "alert";
     "aria-live"?: "polite" | "assertive" | "off";
   };
+  resetRemainingTime: () => void;
 };
 
 function useAlert<T extends HTMLElement>({
@@ -33,6 +34,10 @@ function useAlert<T extends HTMLElement>({
     setIsVisible(false);
     onClose?.();
   }, [onClose]);
+
+  const resetRemainingTime = useCallback(() => {
+    setRemainingTime(visibilityTimeout);
+  }, []);
 
   useEffect(() => {
     if (visibilityTimeout && isVisible) {
@@ -64,6 +69,7 @@ function useAlert<T extends HTMLElement>({
     alertRef,
     handleClose,
     ariaAttrs: accessibilityProps,
+    resetRemainingTime,
   };
 }
 

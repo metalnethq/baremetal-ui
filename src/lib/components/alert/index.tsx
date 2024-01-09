@@ -41,14 +41,17 @@ export interface AlertProps extends VariantProps<typeof alert> {
   children?: ReactNode;
   visibilityTimeout?: number;
   onTick?: (remainingTime: number) => void;
+  hidden?: boolean;
 }
 
-function Alert({ children, visibilityTimeout, onTick, intent, alertWeight, rounded }: AlertProps) {
+function Alert({ children, visibilityTimeout, onTick, intent, alertWeight, rounded, hidden }: AlertProps) {
+
   return (
     <BaseAlert
       visibilityTimeout={visibilityTimeout}
       onTick={onTick}
       className={twMerge(alert({ rounded, alertWeight, intent }))}
+      hidden={hidden}
     >
       {children}
     </BaseAlert>

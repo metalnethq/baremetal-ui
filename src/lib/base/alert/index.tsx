@@ -7,6 +7,7 @@ export type Props = {
   visibilityTimeout?: number;
   onTick?: (remainingTime: number) => void;
   el?: React.ElementType;
+  hidden?: boolean;
 };
 
 function BaseAlert({
@@ -15,11 +16,16 @@ function BaseAlert({
   visibilityTimeout,
   onTick,
   el: El = "div",
+  hidden = false,
 }: Props) {
   const { isVisible, ariaAttrs, alertRef } = useAlert<HTMLElement>({
     visibilityTimeout,
     onTick,
   });
+
+  if (hidden) {
+    return null;
+  }
 
   if (!isVisible) {
     return null;
