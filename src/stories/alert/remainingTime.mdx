@@ -1,0 +1,39 @@
+import { Meta, Primary, Source, Controls } from "@storybook/blocks";
+import * as componentStories from "./remainingTime.stories";
+
+<Meta of={componentStories} />
+<Source
+  language="tsx"
+  code={`function RemainingTime() {
+  const { remainingTime = 0, resetRemainingTime } = useAlert({
+    visibilityTimeout: 5000,
+  });
+  if (remainingTime === null) {
+    return null;
+  }
+  const timeInSeconds = remainingTime / 1000;
+  
+  return (
+    <>
+      <Alert hidden={!remainingTime}>
+        <div>
+          This is an alert. It will dissapear in {timeInSeconds} seconds.
+        </div>
+      </Alert>
+      <Button
+        onClick={() => {
+          resetRemainingTime();
+        }}
+        className="mt-4"
+      >
+        {timeInSeconds ? "Reset timer" : "Show alert"}
+      </Button>
+    </>
+  );
+}`}
+
+/>
+
+<Primary />
+<Controls />
+```
