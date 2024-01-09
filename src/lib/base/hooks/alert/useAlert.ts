@@ -36,8 +36,9 @@ function useAlert<T extends HTMLElement>({
   }, [onClose]);
 
   const resetRemainingTime = useCallback(() => {
+    setIsVisible(true);
     setRemainingTime(visibilityTimeout);
-  }, []);
+  }, [visibilityTimeout]);
 
   useEffect(() => {
     if (visibilityTimeout && isVisible) {

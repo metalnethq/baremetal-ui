@@ -13,11 +13,10 @@ function RemainingTime() {
     return null;
   }
 
-  const timeInSeconds = Math.ceil(remainingTime / 1000);
+  const timeInSeconds = remainingTime / 1000;
 
   return (
     <>
-      {" "}
       <Alert hidden={!remainingTime}>
         <div>
           This is an alert. It will dissapear in {timeInSeconds} seconds.
